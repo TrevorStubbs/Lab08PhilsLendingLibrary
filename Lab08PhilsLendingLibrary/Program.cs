@@ -15,6 +15,9 @@ namespace Lab08PhilsLendingLibrary
             BookBag = new List<Book>();
 
             LoadInitialBooks();
+
+            Console.WriteLine($"There are {Library.Count()} books in the library");
+
             UserInterface();
             Console.ReadLine(); // remove
         }

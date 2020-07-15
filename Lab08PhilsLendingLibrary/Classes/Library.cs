@@ -28,8 +28,13 @@ namespace Lab08PhilsLendingLibrary.Classes
 
         public int Count()
         {
-            // return the number of books in the library
-            return 0;
+            int counter = 0;
+            foreach (T item in Items)
+            {
+                if (item != null)
+                    counter++;
+            }
+            return counter;
         }
 
         public T[] GetItems()
