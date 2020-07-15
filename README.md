@@ -37,10 +37,10 @@ Then select and open ```Lab08PhilsLendingLibrary.sln```
 ![Middle](images/Lab03Mid.png)
 #### Application End
 ![Finished](images/Lab03Fin.png)
-#### WhiteBoard of Challenge 5
-![Whiteboard](images/Challenge5Whiteboard.png)
+
 
 ---
 
 ### Change Log
+- 1.1: Framework Layout
 - 1.0: Initial Repo Setup

@@ -6,19 +6,19 @@ using System.Threading;
 
 namespace Lab08PhilsLendingLibrary.Classes
 {
-    class Library<T> : IEnumerable<T>
+    public class Library<T> : IEnumerable<T>
     {
-        T[] items = new T[10];
+        T[] Items = new T[10];
         int count;
 
         public void Add(T item)
         {
-            if(count == items.Length)
+            if (count == Items.Length)
             {
-                Array.Resize(ref items, items.Length * 2);
+                Array.Resize(ref Items, Items.Length * 2);
             }
 
-            items[count++] = item;
+            Items[count++] = item;
         }
 
         public void Remove(T item)
@@ -26,11 +26,22 @@ namespace Lab08PhilsLendingLibrary.Classes
             // TODO implemtn this
         }
 
+        public int Count()
+        {
+            // return the number of books in the library
+            return 0;
+        }
+
+        public T[] GetItems()
+        {
+            return Items;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < count; i++)
             {
-                yield return items[i];
+                yield return Items[i];
             }
         }
 

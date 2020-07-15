@@ -8,8 +8,15 @@ namespace Lab08PhilsLendingLibraryUnitTests
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void CanAddABook()
         {
+            // Arrange
+            Library<Book> Library = new Library<Book>();
+            Book thisBook = new Book("Top Gun", "Bob", "Smith");
+            //Act
+            Library.Add(thisBook);
+            //Assert
+
 
         }
     }
