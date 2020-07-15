@@ -16,10 +16,7 @@ namespace Lab08PhilsLendingLibrary
 
             LoadInitialBooks();
             UserInterface();
-
-
-
-            Console.ReadLine();
+            Console.ReadLine(); // remove
         }
 
         static void LoadInitialBooks()
@@ -46,7 +43,7 @@ namespace Lab08PhilsLendingLibrary
                 switch (userInput)
                 {
                     case 1:
-                        // ViewAllBooks();
+                        ViewAllBooks();
                         break;
                     case 2:
                         AddABook();
@@ -82,16 +79,17 @@ namespace Lab08PhilsLendingLibrary
             Console.WriteLine("6. Exit");
         }
 
-        //public static void ViewAllBooks()
-        //{
-        //    Book[] books = Library.GetItems();
+        public static void ViewAllBooks()
+        {
+            Book[] books = Library.GetItems();
 
-        //    foreach (Book book in books)
-        //    {
-        //        Console.WriteLine($"{book.Title}, {book. ); //NOT DONE!!!!
+            int counter = 1;
 
-        //    }
-        //}
+            foreach (Book book in books)
+            {
+                Console.WriteLine($"{counter++}. {book.Title}, written by {book.Author.FirstName} {book.Author.LastName}");                
+            }
+        }
 
         public static void AddABook()
         {
