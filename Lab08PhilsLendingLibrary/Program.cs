@@ -10,18 +10,22 @@ namespace Lab08PhilsLendingLibrary
         static Library<Book> Library { get; set; }
         static List<Book> BookBag { get; set; }
 
+        /// <summary>
+        /// Main insertion into the program. It loads the inital books then starts the user interface.
+        /// </summary>
+        /// <param name="args">Magic</param>
         static void Main(string[] args)
         {
             Library = new Library<Book>();
             BookBag = new List<Book>();
 
             LoadInitialBooks();
-
-            Console.WriteLine($"There are {Library.Count()} books in the library");
-
             UserInterface();
         }
 
+        /// <summary>
+        /// This sets up the library with a few books
+        /// </summary>
         static void LoadInitialBooks()
         {
             Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini")); 
@@ -31,6 +35,9 @@ namespace Lab08PhilsLendingLibrary
             Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien"));
         }
 
+        /// <summary>
+        /// This is the main user interface. 
+        /// </summary>
         static void UserInterface()
         {
             Console.WriteLine("Welcome to Phil's Lending library");
@@ -71,6 +78,10 @@ namespace Lab08PhilsLendingLibrary
             }
         }
 
+        /// <summary>
+        /// This is a helper function for the user interface.
+        /// It displays the posible options for the user.
+        /// </summary>
         static void ShowMenu()
         {
             Console.WriteLine("What would you like to do?");
@@ -82,6 +93,9 @@ namespace Lab08PhilsLendingLibrary
             Console.WriteLine("6. Exit");
         }
 
+        /// <summary>
+        /// This calls the GetItems method from the library and displays them for the user
+        /// </summary>
         public static void ViewAllBooks()
         {
             Book[] books = Library.GetItems();
@@ -94,6 +108,9 @@ namespace Lab08PhilsLendingLibrary
             }
         }
 
+        /// <summary>
+        /// This method allows the user to add a book to the library.
+        /// </summary>
         public static void AddABook()
         {
             Console.WriteLine("Lets add a new book to the library.");
@@ -113,6 +130,10 @@ namespace Lab08PhilsLendingLibrary
             Console.WriteLine($"You have added {thisBook.Title}");
         }
 
+        /// <summary>
+        /// This method shows the user all the books in the library and allows them to select one.
+        /// Once its selected its pulled out of the library and added to users bookbag.
+        /// </summary>
         public static void BorrowABook()
         {
             ViewAllBooks();
@@ -130,6 +151,9 @@ namespace Lab08PhilsLendingLibrary
             Console.WriteLine($"{removedBook.Title} is now in your book bag.");
         }
 
+        /// <summary>
+        /// This allows the user to take abook out of thier bag and put it back into the library.
+        /// </summary>
         public static void ReturnABook()
         {
             // Based off of Amanda's ReturnBook() method.            
@@ -150,6 +174,9 @@ namespace Lab08PhilsLendingLibrary
 
         }
 
+        /// <summary>
+        /// This allows the user to see all their book in their book bag. 
+        /// </summary>
         public static void ViewBookBag()
         {
             Console.WriteLine("Here are the books in your bag.");

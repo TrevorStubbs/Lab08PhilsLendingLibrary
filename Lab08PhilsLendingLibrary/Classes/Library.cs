@@ -12,6 +12,10 @@ namespace Lab08PhilsLendingLibrary.Classes
         T[] Items = new T[10];
         int count;
 
+        /// <summary>
+        /// This adds a book to the library
+        /// </summary>
+        /// <param name="item">Takes in a gerneric type</param>
         public void Add(T item)
         {
             if (count == Items.Length)
@@ -22,6 +26,12 @@ namespace Lab08PhilsLendingLibrary.Classes
             Items[count++] = item;
         }
 
+        /// <summary>
+        /// This removes an in item from the library.
+        /// It uses an index to remove the item
+        /// </summary>
+        /// <param name="position">Take an int</param>
+        /// <returns>Returns the book that was removed</returns>
         public T Remove(int position)
         {
             if(position > count)
@@ -60,6 +70,10 @@ namespace Lab08PhilsLendingLibrary.Classes
             return removedBook;
         }
 
+        /// <summary>
+        /// This counts how many books are in the library
+        /// </summary>
+        /// <returns>returns a generic Type object</returns>
         public int Count()
         {
             int counter = 0;
@@ -71,6 +85,10 @@ namespace Lab08PhilsLendingLibrary.Classes
             return counter;
         }
 
+        /// <summary>
+        /// This gets all the items in the library
+        /// </summary>
+        /// <returns>Returns an array generic Type objects</returns>
         public T[] GetItems()
         {
             T[] returnItems = new T[count];
@@ -82,6 +100,10 @@ namespace Lab08PhilsLendingLibrary.Classes
             return returnItems;
         }
 
+        /// <summary>
+        /// Allows the library to be iterated through.
+        /// </summary>
+        /// <returns>returns the iteration</returns>
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < count; i++)
@@ -90,6 +112,10 @@ namespace Lab08PhilsLendingLibrary.Classes
             }
         }
 
+        /// <summary>
+        /// Amanda says this is magic
+        /// </summary>
+        /// <returns>More magic returning from there</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

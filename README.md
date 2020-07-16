@@ -32,16 +32,17 @@ Then select and open ```Lab08PhilsLendingLibrary.sln```
 
 ### Visuals
 #### Application Start
-![Start](images/Lab03Start.png)
+![Start](images/Lab08Start.png)
 #### Using the Application
-![Middle](images/Lab03Mid.png)
+![Middle](images/Lab08Mid.png)
 #### Application End
-![Finished](images/Lab03Fin.png)
+![Finished](images/Lab08Fin.png)
 
 
 ---
 
 ### Change Log
+- 1.8: Comments and readme Complete
 - 1.7: Unit Testing Complete
 - 1.6: Remove a book from the bag and put it back into the library. Complete
 - 1.5: View the books in the book bag. Complete
