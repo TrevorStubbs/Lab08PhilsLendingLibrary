@@ -42,6 +42,7 @@ Then select and open ```Lab08PhilsLendingLibrary.sln```
 ---
 
 ### Change Log
+- 1.9: Genre Enum Added
 - 1.8: Comments and readme Complete
 - 1.7: Unit Testing Complete
 - 1.6: Remove a book from the bag and put it back into the library. Complete
