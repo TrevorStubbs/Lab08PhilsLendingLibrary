@@ -20,22 +20,15 @@ namespace Lab08PhilsLendingLibrary
             Console.WriteLine($"There are {Library.Count()} books in the library");
 
             UserInterface();
-            Console.ReadLine(); // remove
         }
 
         static void LoadInitialBooks()
         {
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini")); // must fix
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini")); 
             Library.Add(new Book("Short Victorious War", "David", "Webb"));
             Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
             Library.Add(new Book("Harry Potter", "JK", "Rowling"));
             Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien"));
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
-            Library.Add(new Book("Short Victorious War", "David", "Webb"));
-            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
-            Library.Add(new Book("Harry Potter", "JK", "Rowling"));
-            Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien"));
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
         }
 
         static void UserInterface()
@@ -166,7 +159,5 @@ namespace Lab08PhilsLendingLibrary
                 Console.WriteLine($"{counter++}. {book.Title}, written by {book.Author.FirstName} {book.Author.LastName}");
             }
         }
-
-
     }
 }

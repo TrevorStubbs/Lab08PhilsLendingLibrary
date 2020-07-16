@@ -24,12 +24,15 @@ namespace Lab08PhilsLendingLibrary.Classes
 
         public T Remove(int position)
         {
-            // TODO implemtn this
+            if(position > count)
+            {
+                throw new Exception("That book does not exist");
+            }
+
             int newCounter = 0;
             T removedBook = Items[position - 1];
             for (int i = 0; i < position - 1; i++)
             {
-                // fill the first part of the array with the first part till you get to selected book poistion.
                 Items[i] = Items[i];
                 newCounter++;
             }

@@ -14,5 +14,25 @@ namespace Lab08PhilsLendingLibrary.Classes
             FirstName = firstName;
             LastName = lastName;
         }
+
+        public string GetFirstName()
+        {
+            return FirstName;
+        }
+
+        public void SetFirstName(string firstName)
+        {
+            FirstName = firstName;
+        }
+
+        public string GetLastName()
+        {
+            return LastName;
+        }
+
+        public void SetLastName(string lastName)
+        {
+            LastName = lastName;
+        }
     }
 }

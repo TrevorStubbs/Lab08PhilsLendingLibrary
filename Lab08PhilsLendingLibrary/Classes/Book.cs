@@ -9,8 +9,6 @@ namespace Lab08PhilsLendingLibrary.Classes
     {
         public string Title { get; set; }
         public Author Author { get; set; }
-        public int NumberOfPages { get; set; }
-        public Genres Genre { get; set; }
 
         public Book(string title, string firstName, string lastName)
         {
@@ -18,13 +16,26 @@ namespace Lab08PhilsLendingLibrary.Classes
             Title = title;
         }
 
-        public enum Genres : byte
+        public string GetTitle()
         {
-            fiction = 1,
-            nonfiction,
-            fantasy,
-            scifi,
-            historic
-        };
+            return Title;
+        }
+
+        public void SetTitle(string title)
+        {
+            Title = title;
+        }
+
+        public Author GetAuthor()
+        {
+            return Author;
+        }
+
+        public void SetAuthor(Author author)
+        {
+            Author = author;
+        }
+
+
     }
 }
