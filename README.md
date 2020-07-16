@@ -42,5 +42,9 @@ Then select and open ```Lab08PhilsLendingLibrary.sln```
 ---
 
 ### Change Log
+- 1.5: View the books in the book bag.
+- 1.4: Remove a book from the library and add it to the book bag Complete
+- 1.3: View all books in the library Complete
+- 1.2: Add a book to the library Complete
 - 1.1: Framework Layout
 - 1.0: Initial Repo Setup
