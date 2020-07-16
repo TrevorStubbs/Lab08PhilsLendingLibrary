@@ -1,6 +1,7 @@
 ﻿using Lab08PhilsLendingLibrary.Classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Lab08PhilsLendingLibrary
 {
@@ -61,10 +62,10 @@ namespace Lab08PhilsLendingLibrary
                         BorrowABook();
                         break;
                     case 4:
-                        // ReturnABook();
+                        ReturnABook();
                         break;
                     case 5:
-                        // ViewBookBag();
+                        ViewBookBag();
                         break;
                     case 6:
                         Console.WriteLine("Thank you for using Phil's Lending Library");
@@ -80,7 +81,7 @@ namespace Lab08PhilsLendingLibrary
         static void ShowMenu()
         {
             Console.WriteLine("What would you like to do?");
-            Console.WriteLine("1. View all Books");
+            Console.WriteLine("1. View all Books in the Library");
             Console.WriteLine("2. Add a Book");
             Console.WriteLine("3. Borrow a book");
             Console.WriteLine("4. Return a book");
@@ -136,6 +137,35 @@ namespace Lab08PhilsLendingLibrary
             Console.WriteLine($"{removedBook.Title} is now in your book bag.");
         }
 
+        public static void ReturnABook()
+        {
+            // Based off of Amanda's ReturnBook() method.            
+            Dictionary<int, Book> books = new Dictionary<int, Book>();
+            Console.WriteLine("What book would you like to return?");
+            int counter = 1;
+            foreach (Book book in BookBag)
+            {
+                books.Add(counter, book);
+                Console.WriteLine($"{counter++}. {book.Title}, written by {book.Author.FirstName} {book.Author.LastName}");
+            }
+
+            string userInput = Console.ReadLine();
+            int.TryParse(userInput, out int numberSelected);
+            books.TryGetValue(numberSelected, out Book returnedBook);
+            BookBag.Remove(returnedBook);
+            Library.Add(returnedBook);
+
+        }
+
+        public static void ViewBookBag()
+        {
+            Console.WriteLine("Here are the books in your bag.");
+            int counter = 1;
+            foreach(Book book in BookBag)
+            {
+                Console.WriteLine($"{counter++}. {book.Title}, written by {book.Author.FirstName} {book.Author.LastName}");
+            }
+        }
 
 
     }
