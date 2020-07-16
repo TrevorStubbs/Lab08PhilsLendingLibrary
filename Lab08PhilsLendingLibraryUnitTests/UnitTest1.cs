@@ -12,7 +12,7 @@ namespace Lab08PhilsLendingLibraryUnitTests
         {
             // Arrange
             Library<Book> Library = new Library<Book>();
-            Book thisBook = new Book("Top Gun", "Bob", "Smith");
+            Book thisBook = new Book("Top Gun", "Bob", "Smith", (Genre)1);
             //Act
             Library.Add(thisBook);
             Book[] testBook = new Book[1];
@@ -30,10 +30,10 @@ namespace Lab08PhilsLendingLibraryUnitTests
         {
             // Arrange
             Library<Book> Library = new Library<Book>();
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
-            Library.Add(new Book("Short Victorious War", "David", "Webb"));
-            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
-            Library.Add(new Book("Harry Potter", "JK", "Rowling"));
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini", (Genre)1));
+            Library.Add(new Book("Short Victorious War", "David", "Webb", (Genre)5));
+            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan", (Genre)4));
+            Library.Add(new Book("Harry Potter", "JK", "Rowling", (Genre)4));
             //Act
             Book[] bookArray = new Book[4];
 
@@ -52,9 +52,9 @@ namespace Lab08PhilsLendingLibraryUnitTests
         public void CannotRemoveABookThatDoesntExist()
         {
             Library<Book> Library = new Library<Book>();
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
-            Library.Add(new Book("Short Victorious War", "David", "Webb"));
-            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini", (Genre)1));
+            Library.Add(new Book("Short Victorious War", "David", "Webb", (Genre)5));
+            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan", (Genre)4));
 
             Exception e = Assert.Throws<System.Exception>(() => Library.Remove(4));
 
@@ -112,7 +112,7 @@ namespace Lab08PhilsLendingLibraryUnitTests
         [Fact]
         public void GetBookTitle()
         {
-            Book thisBook = new Book("Top Gun", "Bob", "Smith");
+            Book thisBook = new Book("Top Gun", "Bob", "Smith", (Genre)6);
             string expected = "Top Gun";
             string outputFromMethod = thisBook.GetTitle();
 
@@ -123,7 +123,7 @@ namespace Lab08PhilsLendingLibraryUnitTests
         [Fact]
         public void SetBookTitle()
         {
-            Book thisBook = new Book("Top Gun", "Bob", "Smith");
+            Book thisBook = new Book("Top Gun", "Bob", "Smith", (Genre)6);
             thisBook.SetTitle("Lamnda");
             string expected = "Lamnda";
             string outputFromMethod = thisBook.GetTitle();
@@ -133,7 +133,7 @@ namespace Lab08PhilsLendingLibraryUnitTests
         [Fact]
         public void GetBookAuthor()
         {
-            Book thisBook = new Book("Top Gun", "Bob", "Smith");
+            Book thisBook = new Book("Top Gun", "Bob", "Smith", (Genre)6);
             string expected = "Bob";
             string outputFromMethod = thisBook.Author.GetFirstName();
 
@@ -143,7 +143,7 @@ namespace Lab08PhilsLendingLibraryUnitTests
         [Fact]
         public void SetBookAuthor()
         {
-            Book thisBook = new Book("Top Gun", "Bob", "Smith");
+            Book thisBook = new Book("Top Gun", "Bob", "Smith", (Genre)6);
             Author author = new Author("Tom", "Hanks");
             string expected = "Tom";
 
@@ -157,9 +157,9 @@ namespace Lab08PhilsLendingLibraryUnitTests
         public void AccurateCoutOfBooksInLibrary()
         {
             Library<Book> Library = new Library<Book>();
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
-            Library.Add(new Book("Short Victorious War", "David", "Webb"));
-            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini", (Genre)1));
+            Library.Add(new Book("Short Victorious War", "David", "Webb", (Genre)5));
+            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan", (Genre)4));
 
             int expected = 3;
 
@@ -172,9 +172,9 @@ namespace Lab08PhilsLendingLibraryUnitTests
         public void GetItemsReturnsAllItems()
         {
             Library<Book> Library = new Library<Book>();
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
-            Library.Add(new Book("Short Victorious War", "David", "Webb"));
-            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini", (Genre)1));
+            Library.Add(new Book("Short Victorious War", "David", "Webb", (Genre)5));
+            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan", (Genre)4));
 
             Book[] bookArray = new Book[3];
 
