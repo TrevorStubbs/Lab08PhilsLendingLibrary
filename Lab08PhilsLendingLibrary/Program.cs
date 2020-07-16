@@ -24,11 +24,17 @@ namespace Lab08PhilsLendingLibrary
 
         static void LoadInitialBooks()
         {
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini")); // must fix
+            Library.Add(new Book("Short Victorious War", "David", "Webb"));
+            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
+            Library.Add(new Book("Harry Potter", "JK", "Rowling"));
+            Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien"));
             Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
             Library.Add(new Book("Short Victorious War", "David", "Webb"));
             Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
             Library.Add(new Book("Harry Potter", "JK", "Rowling"));
-            Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien"));            
+            Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien"));
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini"));
         }
 
         static void UserInterface()
@@ -52,7 +58,7 @@ namespace Lab08PhilsLendingLibrary
                         AddABook();
                         break;
                     case 3:
-                        // BorrowABook();
+                        BorrowABook();
                         break;
                     case 4:
                         // ReturnABook();
@@ -112,6 +118,24 @@ namespace Lab08PhilsLendingLibrary
 
             Console.WriteLine($"You have added {thisBook.Title}");
         }
+
+        public static void BorrowABook()
+        {
+            ViewAllBooks();
+            Console.WriteLine("Please type in the book's number to check it out.");
+            string userInput = Console.ReadLine();
+            int.TryParse(userInput, out int bookNumber);
+            if(bookNumber > Library.Count())
+            {
+                Console.WriteLine("I am sorry that is not a valid choice");
+                BorrowABook();
+                return;
+            }
+            Book removedBook = Library.Remove(bookNumber);
+            BookBag.Add(removedBook);
+            Console.WriteLine($"{removedBook.Title} is now in your book bag.");
+        }
+
 
 
     }
