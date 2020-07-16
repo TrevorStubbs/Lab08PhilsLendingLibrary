@@ -28,11 +28,11 @@ namespace Lab08PhilsLendingLibrary
         /// </summary>
         static void LoadInitialBooks()
         {
-            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini")); 
-            Library.Add(new Book("Short Victorious War", "David", "Webb"));
-            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan"));
-            Library.Add(new Book("Harry Potter", "JK", "Rowling"));
-            Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien"));
+            Library.Add(new Book("Mission Impossible", "Peter", "Barsocchini", (Genre)1)); 
+            Library.Add(new Book("Short Victorious War", "David", "Webb", (Genre)5));
+            Library.Add(new Book("Lord Of Chaos", "Robert", "Jordan", (Genre)4));
+            Library.Add(new Book("Harry Potter", "JK", "Rowling", (Genre)4));
+            Library.Add(new Book("Lord of the Rings", "JRR", "Tolkien", (Genre)4));
         }
 
         /// <summary>
@@ -104,7 +104,8 @@ namespace Lab08PhilsLendingLibrary
 
             foreach (Book book in books)
             {
-                Console.WriteLine($"{counter++}. {book.Title}, written by {book.Author.FirstName} {book.Author.LastName}");                
+                Console.WriteLine($"{counter++}. {book.Title}, written by {book.Author.FirstName} {book.Author.LastName}.");
+                Console.WriteLine($"--{book.Title} is in the {book.Genre} genre.");
             }
         }
 
@@ -121,13 +122,42 @@ namespace Lab08PhilsLendingLibrary
             Console.WriteLine("What is the Last Name of the book's author?");
             string bookLast = Console.ReadLine();
 
-            Book thisBook = new Book(bookTitle, bookFirst, bookLast);
+            Genre bookGenre = ChooseGenre();
+
+            Book thisBook = new Book(bookTitle, bookFirst, bookLast, bookGenre);
 
             Library.Add(thisBook);
 
             Console.WriteLine();
 
             Console.WriteLine($"You have added {thisBook.Title}");
+        }
+
+        /// <summary>
+        /// Asks the user to select which genre the new book needs to be in.
+        /// </summary>
+        /// <returns>Returns a Genre enum</returns>
+        public static Genre ChooseGenre()
+        {
+            Console.WriteLine("What is the book's genre");
+            int counter = 1;
+            foreach(int i in Enum.GetValues(typeof(Genre)))
+            {
+                Console.WriteLine($"{counter++}. {Enum.GetName(typeof(Genre), i)}");
+            }
+
+            string userInput = Console.ReadLine();
+            int.TryParse(userInput, out int userInt);
+
+            if (userInt < 1 || userInt > Enum.GetNames(typeof(Genre)).Length)
+            {
+                Console.WriteLine("That is not a valid selection.");
+                return ChooseGenre();
+            }
+
+            Genre outputFromMethod = (Genre)userInt;
+
+            return outputFromMethod;
         }
 
         /// <summary>
